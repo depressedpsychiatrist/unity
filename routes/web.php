@@ -14,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'UserController@index')->name('home');
+
 Route::resource('user', 'UserController');
+
+Route::resource('company', 'CompanyController');
+Route::get('company/{company}/addUsers', 'CompanyController@addUsers')->name('company.addUsers');
+Route::post('company/{company}/attachUsers', 'CompanyController@attachUsers')->name('company.attachUsers');
+Route::get('company/{company}/detachUser/{user}', 'CompanyController@detachUser')->name('company.detachUser');

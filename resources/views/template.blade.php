@@ -16,8 +16,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="{{route('user.index')}}">Users</a>
-            <a class="nav-item nav-link" href="#">Companies</a>
+            <a class="nav-item nav-link {{request()->routeIs('user.*') ? 'active' : ''}}" href="{{route('user.index')}}">Users</a>
+            <a class="nav-item nav-link {{request()->routeIs('company.*') ? 'active' : ''}}" href="{{route('company.index')}}">Companies</a>
           </div>
         </div>
       </nav>

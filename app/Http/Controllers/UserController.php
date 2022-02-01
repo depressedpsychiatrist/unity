@@ -69,6 +69,7 @@ class UserController extends Controller
     }
 
     /**
+     * Remove all the attachments to companies first
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\User  $user
@@ -76,6 +77,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        foreach ($user->companies as $company) {
+            $company->users()->detach($user);
+        }
         $user->delete();
         return redirect()->back();
     }
